@@ -1,0 +1,22 @@
+<h1><%= @instructor.user.first_name %> <%= @instructor.user.last_name %></h1>
+<p><strong>User Type:</strong> <%= @instructor.user.userable_type %></p>
+<p><strong>Birthdate:</strong> <%= @instructor.user.birthdate %></p>
+<p><strong>Salary:</strong> <%= @instructor.salary %></p>
+<p><strong>Edu:</strong> <%= @instructor.edu %></p>
+<p><strong>Email:</strong> <%= @instructor.user.email %></p>
+<table>
+    <tr>
+        <th>Cohorts</th>
+        <th colspan="3">Options</th>
+    </tr>
+    <% @instructor.user.enrollments.each do |e| %>
+    <tr>
+            <td><%= e.cohort.name %></td>
+            <td><%= link_to 'Show', cohort_enrollment_path(e.cohort.id, e.id) %></td>
+            <td><%= link_to 'Edit', edit_cohort_enrollment_path(e.cohort.id, e.id) %></td>
+            <td><%= link_to 'Destroy', cohort_enrollment_path(e.cohort.id, e.id),
+            method: :delete,
+            data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+</table>

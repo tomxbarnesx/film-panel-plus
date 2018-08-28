@@ -1,0 +1,16 @@
+<% @admins.each do |ad| %>
+    <tr>
+        <td><%= ad.user.first_name %></td>
+        <td><%= ad.user.last_name %></td>
+        <td><%= ad.user.birthdate %></td>
+        <td><%= ad.user.userable_type %></td>
+        <td><%= ad.user.email %></td>
+        <td><%= ad.salary %></td>
+        <td><%= ad.edu %></td>
+        <td><%= link_to 'Show', admin_path(ad) %></td>
+        <td><%= link_to 'Edit', edit_admin_path(ad) %></td>
+        <td><%= link_to 'Destroy', admin_path(ad),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+<% end %>
