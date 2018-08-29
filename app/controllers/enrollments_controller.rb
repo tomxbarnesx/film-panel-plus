@@ -1,4 +1,5 @@
 class EnrollmentsController < ApplicationController
+    before_action :authenticate_user!
     def show
         @enrollment = Enrollment.find(params[:id])
     end

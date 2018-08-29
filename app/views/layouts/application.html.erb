@@ -10,9 +10,76 @@
   </head>
 
   <body>
-      <%= render 'devise/menu/login_items' %>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <div id="wrapper">
+      <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3>Railsdance<br>Film Academy</h3>
+        </div>
+        <ul class="list-unstyled components">
+            <p class="big-list-item">Dashboard</p>
+            <li>
+              <a href="#courseSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle big-list-item">Courses</a>
+              <ul class="collapse list-unstyled" id="courseSubmenu">
+                <li>
+                  <a href="/courses">- Full List</a>
+                </li>
+                <li>
+                  <a href="/courses/new">- Create New</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#cohortSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle big-list-item">Cohorts</a>
+              <ul class="collapse list-unstyled" id="cohortSubmenu">
+                <li>
+                  <a href="/cohorts">- Full List</a>
+                </li>
+                <li>
+                  <a href="/cohorts/new">- Create New</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#studentSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle big-list-item">Students</a>
+              <ul class="collapse list-unstyled" id="studentSubmenu">
+                <li>
+                  <a href="/students">- Full List</a>
+                </li>
+                <li>
+                    <a href="/students/new">- Create New</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#instructorSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle big-list-item">Instructors</a>
+              <ul class="collapse list-unstyled" id="instructorSubmenu">
+                <li>
+                    <a href="/instructors">- Full List</a>
+                </li>
+                <li>
+                    <a href="/instructors/new">- Create New</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#adminSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle big-list-item">Admins</a>
+              <ul class="collapse list-unstyled" id="adminSubmenu">
+                <li>
+                  <a href="/admins">- Full List</a>
+                </li>
+                <li>
+                  <a href="/admins/new">- Create New</a>
+                </li>
+              </ul>
+            </li>
+        </ul>
+      </nav>
+      <div id="content">
+        <%= render 'devise/menu/login_items' %>
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>

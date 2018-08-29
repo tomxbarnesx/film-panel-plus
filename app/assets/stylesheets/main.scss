@@ -1,0 +1,32 @@
+.wrapper {
+    display: flex;
+    width: 100%;
+}
+
+#sidebar {
+    width: 18em;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    padding: 1em 2em 0em 2em;
+    z-index: 999;
+    background: #52154E;
+    color: #DCE0D9;
+    transition: all 0.3s;
+
+    p {
+        color: #fff;
+    }
+    a {
+        color: #fff;
+    }
+}
+
+#content {
+    margin-left: 22em;
+}
+
+.big-list-item {
+    font-size: 125%;
+}

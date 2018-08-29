@@ -7,7 +7,7 @@
             <% conn_arr.push(connect) %>
         <% end %>
         <td><%= conn_arr.length %></td>
-        <% if current_user && current_user.userable_type == "Admin" %>
+        <% if has_role?("Admin") %>
         <td><%= link_to 'Show', course_path(cor) %></td>
         <td><%= link_to 'Edit', edit_course_path(cor) %></td>
         <td><%= link_to 'Destroy', course_path(cor),
