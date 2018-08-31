@@ -1,5 +1,5 @@
 <% @instructors.each do |inst| %>
-    <tr>
+    <tr id="instructor-<%= inst.id %>">
         <td><%= inst.user.first_name %></td>
         <td><%= inst.user.last_name %></td>
         <td><%= inst.user.birthdate %></td>
@@ -10,7 +10,7 @@
         <td><%= link_to 'Show', instructor_path(inst) %></td>
         <td><%= link_to 'Edit', edit_instructor_path(inst) %></td>
         <td><%= link_to 'Destroy', instructor_path(inst),
-              method: :delete,
+              method: :delete, remote:true,
               data: { confirm: 'Are you sure?' } %></td>
     </tr>
 <% end %>

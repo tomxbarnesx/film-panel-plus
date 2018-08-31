@@ -1,6 +1,6 @@
 <% @cohorts.each do |coho| %>
     <tr id="cohort-<%= coho.id %>">
-        <td><%= coho.name %></td>
+        <td class="first-column"><%= coho.name %></td>
         <td><%= coho.course.name %></td>
         <td><%= coho.start_date %></td>
         <td><%= coho.end_date %></td>

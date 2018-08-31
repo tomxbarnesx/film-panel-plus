@@ -1,4 +1,6 @@
-<div class="profile-card">
-    <img src="<%= @admin.user.photo_url %>">
+<div class="card" style="width: 35.2rem;">
+    <div class="card-img-wrapper"> 
+        <img class="card-img-top" src="<%= @admin.user.photo_url %>" alt="Admin Avatar">
+    </div>
     <%= render "single_admin" %>
 </div>

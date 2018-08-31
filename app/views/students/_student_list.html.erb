@@ -1,5 +1,5 @@
 <% @students.each do |stu| %>
-    <tr>
+    <tr id="student-<%= stu.id %>">
         <td><%= stu.user.first_name %></td>
         <td><%= stu.user.last_name %></td>
         <td><%= stu.user.birthdate %></td>
@@ -9,7 +9,7 @@
         <td><%= link_to 'Show', student_path(stu) %></td>
         <td><%= link_to 'Edit', edit_student_path(stu) %></td>
         <td><%= link_to 'Destroy', student_path(stu),
-              method: :delete,
+              method: :delete, remote:true,
               data: { confirm: 'Are you sure?' } %></td>
     </tr>
 <% end %>

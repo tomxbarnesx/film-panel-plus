@@ -3,6 +3,17 @@
     width: 100%;
 }
 
+h1 {
+    margin-bottom: .4em;
+    margin-top: 0em;
+}
+
+.login-button {
+    margin-top: 1em;
+}
+
+//SIDEBAR
+
 #sidebar {
     width: 18em;
     position: fixed;
@@ -12,7 +23,7 @@
     padding: 1em 2em 0em 2em;
     z-index: 999;
     background: #52154E;
-    color: #DCE0D9;
+    color: rgb(255, 235, 252);
     transition: all 0.3s;
 
     p {
@@ -29,4 +40,49 @@
 
 .big-list-item {
     font-size: 125%;
+    color: #DCE0D9;
 }
+
+#logo-wrapper {
+    background-color: rgb(255, 235, 252);
+    width: 175px;
+    border-radius: 1em;
+    margin-bottom: -.7em;
+}
+
+//TABLE STYLING
+
+.table-header {
+    width: 100%;
+}
+
+td {
+    padding: 0em .8em .4em .7em;
+    text-align: center;
+}
+
+.first-column {
+    text-align: left;
+}
+
+th {
+    padding: 0em 1.3em .1em 1.3em;
+    background-color: rgb(231, 179, 236);
+}
+
+.center-col {
+    text-align: center;
+}
+
+table {
+    border: 1px rgb(219, 171, 224) solid;
+
+    tr {
+        border: 1px rgb(219, 171, 224) solid;
+        height: 2.5em;
+    }
+}
+  
+tr:nth-child(odd){
+    background-color: rgb(255, 235, 252);
+  }

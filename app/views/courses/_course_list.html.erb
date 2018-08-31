@@ -1,6 +1,6 @@
 <% @courses.each do |cor| %>
-    <tr>
-        <td><%= cor.name %></td>
+    <tr id="course-<%=cor.id%>">
+        <td class="first-column"><%= cor.name %></td>
         <td><%= cor.total_hours %></td>
         <% conn_arr = [] %>
         <% cor.cohorts.each do |connect| %>
@@ -11,7 +11,7 @@
         <td><%= link_to 'Show', course_path(cor) %></td>
         <td><%= link_to 'Edit', edit_course_path(cor) %></td>
         <td><%= link_to 'Destroy', course_path(cor),
-              method: :delete,
+              method: :delete, remote:true,
               data: { confirm: 'Are you sure?' } %></td>
         <% end %>
     </tr>

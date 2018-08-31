@@ -1,7 +1,8 @@
-<h1><%= @admin.user.first_name %> <%= @admin.user.last_name %></h1>
-<p><strong>User Type:</strong> <%= @admin.user.userable_type %></p>
-<p><strong>Birthdate:</strong> <%= @admin.user.birthdate %></p>
-<p><strong>Salary:</strong> <%= @admin.salary %></p>
-<p><strong>Edu:</strong> <%= @admin.edu %></p>
-<p><strong>Email:</strong> <%= @admin.user.email %></p>
-</ul>
+<div class="card-body">
+    <h1 class="card-title"><%= @admin.user.first_name %> <%= @admin.user.last_name %></h1>
+    <p class="card-text"><strong>User Type:</strong> <%= @admin.user.userable_type %></p>
+    <p class="card-text"><strong>Birthdate:</strong> <%= @admin.user.birthdate %></p>
+    <p class="card-text"><strong>Salary:</strong> $<%= @admin.salary %></p>
+    <p class="card-text"><strong>Edu:</strong> <%= @admin.edu %></p>
+    <p class="card-text"><strong>Email:</strong> <%= @admin.user.email %></p>
+</div>
