@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FilmPlus</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div id="devise-wrapper">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+        <div class="devise-header">
+            <div class="login-logo-wrapper">
+              <img src="/assets/film2.png" width="224" height="175">
+            </div>
+            <h1>Railsdance<br>Film Academy</h1>
+        </div>
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+</html>

@@ -3,6 +3,36 @@
     width: 100%;
 }
 
+#devise-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background: #52154E;
+    color: white;
+    height: 900px;
+
+    .devise-header {
+        margin-top: 3em;
+
+        h1{
+            font-size: 240%;
+            color: rgb(255, 235, 252);
+        }
+    }
+
+    .login-logo-wrapper {
+        background-color: rgb(255, 235, 252);
+        width: 224px;
+        border-radius: 1em;
+    }
+
+    input {
+        color: black;
+    }
+
+}
+
 h1 {
     margin-bottom: .4em;
     margin-top: 0em;
@@ -10,6 +40,10 @@ h1 {
 
 .login-button {
     margin-top: 1em;
+}
+
+.sessions-button {
+    color: black;
 }
 
 //SIDEBAR
@@ -85,4 +119,19 @@ table {
   
 tr:nth-child(odd){
     background-color: rgb(255, 235, 252);
-  }
+}
+
+
+//MEDIA QUERIES
+
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+    #content {
+        margin-left: 0;
+    }
+ }
