@@ -1,0 +1,7 @@
+console.log("Hello");
+
+cohortDiv = document.getElementById('cohort-<%= @cohort.id %>');
+
+console.log("Current task clicked " + cohortDiv.innerText);
+
+$(cohortDiv).replaceWith("<%= j (render 'form') %>");

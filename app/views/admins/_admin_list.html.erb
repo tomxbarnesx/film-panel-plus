@@ -1,5 +1,5 @@
 <% @admins.each do |ad| %>
-    <tr>
+    <tr id="admin-<%= ad.id %>">
         <td><%= ad.user.first_name %></td>
         <td><%= ad.user.last_name %></td>
         <td><%= ad.user.birthdate %></td>
@@ -10,7 +10,7 @@
         <td><%= link_to 'Show', admin_path(ad) %></td>
         <td><%= link_to 'Edit', edit_admin_path(ad) %></td>
         <td><%= link_to 'Destroy', admin_path(ad),
-              method: :delete,
+              method: :delete, remote:true,
               data: { confirm: 'Are you sure?' } %></td>
     </tr>
 <% end %>

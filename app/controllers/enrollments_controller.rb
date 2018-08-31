@@ -36,8 +36,6 @@ class EnrollmentsController < ApplicationController
     def destroy
         @enrollment = Enrollment.find(params[:id])
         @enrollment.destroy
-
-        redirect_to @enrollment.cohort
     end
 
     private 

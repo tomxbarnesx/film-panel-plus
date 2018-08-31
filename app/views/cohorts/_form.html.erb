@@ -1,0 +1,25 @@
+<%= form_for @cohort, remote: true do |f| %>
+    <div class="field">
+      <%= f.label :name %>
+      <%= f.text_field :name, id: :cohort_name %>
+    </div>
+  
+    <div class="field">
+      <%= f.label :course %>
+      <%= f.collection_select(:cohort, :course_id, Course.all, :id, :name) %>
+    </div>
+
+    <div class="field">
+      <%= f.label :start_date %>
+      <%= f.date_field :start_date, id: :cohort_start_date %>
+    </div>
+
+    <div class="field">
+      <%= f.label :end_date %>
+      <%= f.date_field :end_date, id: :cohort_end_date %>
+    </div>
+  
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>
