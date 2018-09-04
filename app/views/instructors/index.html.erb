@@ -8,11 +8,15 @@
             <th>Birthdate</th>
             <th>Type</th>
             <th class='center-col'>Email</th>
+            <% if has_role?("Admin") %>
             <th>Salary</th>
+            <% end %>
             <th>Education</th>
             <th class='center-col'>Options</th>
+            <% if has_role?("Admin") %>
             <th></th>
             <th></th>
+            <% end %>
         </tr>
     </thead>
     <tbody>

@@ -6,8 +6,10 @@
             <th>Total Hours</th>
             <th>Number of Cohorts</th>
             <th class='center-col'>Options</th>
+            <% if has_role?("Admin") %>
             <th></th>
             <th></th>
+            <% end %>
         </tr>
     </thead>
     <tbody>

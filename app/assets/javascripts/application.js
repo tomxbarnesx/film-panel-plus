@@ -28,13 +28,27 @@ $(document).on('turbolinks:load', function () {
     } );
 } );
 
-$(document).ready(function() {
-    let adder = document.getElementById('adder');
-    let hiddenAdder = document.getElementById('hidden-adder');
 
-    adder.addEventListener('click', () => {
-        adder.style.display="none";
-        hiddenAdder.style.display="flex";
-    });
+//SOLUTION 1
+// var dataTable = null
+
+// document.addEventListener("turbolinks:before-cache", function() {
+//   if (dataTable !== null) {
+//    dataTable.destroy()
+//    dataTable = null
+//   }
+// })
+
+
+//JQUERY ON LOAD SOLUTION 
+
+// $(document).ready(function() {
+//     // let adder = document.getElementById('adder');
+//     // let hiddenAdder = document.getElementById('hidden-adder');
+
+//     // adder.addEventListener('click', () => {
+//     //     adder.style.display="none";
+//     //     hiddenAdder.style.display="flex";
+//     // });
     
-});
+// });

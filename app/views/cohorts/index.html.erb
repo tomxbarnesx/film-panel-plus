@@ -6,10 +6,12 @@
             <th>Course</th>
             <th>Start Date</th>
             <th>End Date</th>
-            <th>Number of Students</th>
+            <th>Headcount</th>
             <th class='center-col'>Options</th>
+            <% if has_role?("Admin") %>
             <th></th>
             <th></th>
+            <% end %>
         </tr>
     </thead>
     <tbody>

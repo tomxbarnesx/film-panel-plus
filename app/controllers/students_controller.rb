@@ -8,7 +8,6 @@ class StudentsController < ApplicationController
 
     def show
         @student = Student.find(params[:id])
-        @enrollment = Enrollment.new
         @cohort = params[:cohort_id]
         # @enrollment = Enrollment.find(params[:id])
         # @enrollments = @student.user.enrollments

@@ -9,8 +9,10 @@
             <th class="center-col">Email</th>
             <th>Background</th>
             <th class='center-col'>Options</th>
+            <% if has_role?("Admin") %>
             <th></th>
             <th></th>
+            <% end %>
         </tr>
     </thead>
     <tbody>

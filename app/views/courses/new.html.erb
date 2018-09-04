@@ -1,3 +1,7 @@
+<% if has_role?("Student") || has_role?("Instructor") %>
+    <h1>You don't have the authorization to access this page...</h1>
+<% end %>
+<% if has_role?("Admin") %>
 <h1>Create New Course</h1>
 <br>
 <%= form_with scope: :course, url: courses_path, local: true do |form| %>
@@ -14,4 +18,5 @@
         <%= form.text_area :description, placeholder: "Enter a Description", class: "form-control" %>
     </div>
     <%= form.button :Submit, class: 'btn btn-primary submit-button' %>
+<% end %>
 <% end %>

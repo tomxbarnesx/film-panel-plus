@@ -21,6 +21,7 @@
         </div>
         <ul class="list-unstyled components">
             <p class="big-list-item">Dashboard</p>
+            <% if has_role?("Admin") %>
             <li>
               <a href="#courseSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle big-list-item">Courses</a>
               <ul class="collapse list-unstyled" id="courseSubmenu">
@@ -43,12 +44,25 @@
                 </li>
               </ul>
             </li>
+            <% end %>
+            <% if has_role?("Student") %>
+            <li class="big-list-item">
+              <a href="/students/<%= current_user.userable_id %>">My Profile</a>
+            </li>
+            <li class="big-list-item">
+              <a href="/cohorts">Cohorts</a>
+            </li>
+            <li class="big-list-item">
+              <a href="/courses">Courses</a>
+            </li>
+            <% end %>  
             <li class="big-list-item">
               <a href="/students">Students</a>
             </li>
             <li class="big-list-item">
                 <a href="/instructors">Instructors</a>
-              </li>
+            </li>
+            <% if has_role?("Admin") %>
             <li class="big-list-item">
               <a href="/admins">Admins</a>
             </li>
@@ -63,6 +77,7 @@
                 <li>
                   <a href="/admins/new">+ Admin</a>
                 </li>
+              <% end %>
               </ul>
             </div>
         </ul>

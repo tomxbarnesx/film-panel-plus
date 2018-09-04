@@ -1,3 +1,7 @@
+<% if has_role?("Student") || current_user.userable_id != @instructor.id %>
+    <h1>You don't have the authorization to access this page...</h1>
+<% end %>
+<% if has_role?("Admin") || current_user.userable_id == @instructor.id %>
 <h1>Edit Instructor Profile</h1>
 
 <%= form_for @instructor do |f|%>
@@ -34,4 +38,5 @@
         </div>
     </div>
     <%= f.button :Submit, class: 'btn btn-primary submit-button' %>
+<% end %>
 <% end %>

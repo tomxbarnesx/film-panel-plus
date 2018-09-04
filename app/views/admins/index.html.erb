@@ -1,5 +1,8 @@
+<% if has_role?("Student") %>
+    <h1>You don't have the authorization to access this page...</h1>
+<% end %>
+<% if has_role?("Admin") || has_role?("Instructor") %>
 <h1>Admins List</h1>
-
 <table id="datatable" class="display">
     <thead>
         <tr class="table-header">
@@ -10,11 +13,14 @@
             <th>Salary</th>
             <th>Education</th>
             <th class='center-col'>Options</th>
+            <% if has_role?("Admin") %>
             <th></th>
             <th></th>
+            <% end %>
         </tr>
     </thead>
     <tbody>
         <%= render "admin_list" %>
     </tbody>
 </table>
+<% end %>

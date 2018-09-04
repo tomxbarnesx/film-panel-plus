@@ -1,3 +1,7 @@
+<% if has_role?("Student") || has_role?("Instructor") %>
+    <h1>You don't have the authorization to access this page...</h1>
+<% end %>
+<% if has_role?("Admin") %>
 <h1>Create New Cohort</h1>
 <br>
 <%= form_with scope: :cohort, url: cohorts_path, local: true do |f| %>
@@ -18,4 +22,5 @@
         <%= collection_select(:cohort, :course_id, Course.all, :id, :name, {}, {:class=>'form-control'}) %>
     </div>
     <%= f.button :Submit, class: 'btn btn-primary submit-button' %>
+<% end %>
 <% end %>

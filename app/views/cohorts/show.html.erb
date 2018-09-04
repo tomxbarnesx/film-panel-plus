@@ -8,8 +8,10 @@
     </div>
     <br>
     <h2>Cohort Roster</h2>
-        <a href="/cohorts/<%= @cohort.id %>/enrollments/new"><button class="btn btn-primary purple-button">Add Member</div></a>
-    <table id="datatable" class="display" data-turbolinks="false">
+        <% if has_role?("Admin") %>
+            <a href="/cohorts/<%= @cohort.id %>/enrollments/new"><button class="btn btn-primary purple-button">Add Member</div></a>
+        <% end %>
+            <table id="datatable" class="display" data-turbolinks="false">
         <thead>
             <tr class="table-header">
                 <th>First Name</th> 
@@ -18,8 +20,10 @@
                 <th>Birthdate</th>
                 <th>Email</th>
                 <th>Options</th>
+                <% if has_role?("Admin") %>
                 <th></th>
                 <th></th>
+                <% end %>
             </tr>
         </thead>
         <tbody>

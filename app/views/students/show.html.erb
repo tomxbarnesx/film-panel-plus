@@ -6,24 +6,23 @@
 </div>
 <br>
 <h2><%= @student.user.first_name %>'s Enrollments</h2>
-<div class="wrapper" id="add-wrapper">
-    <button class="btn btn-primary purple-button" id="adder">Add New</button>
-        <div id="hidden-adder" style="display:none;">
-        </div>
-</div>
 <table id="datatable" data-turbolinks="false" class="display mini-table">
     <thead>
         <tr>
             <th>Cohorts</th>
+            <th>Headcount</th>
             <th class="center-col">Options</th>
+            <% if has_role?("Admin") %>
             <th></th>
             <th></th>
+            <% end %>
         </tr>
     </thead>
     <tbody>
         <% @student.user.enrollments.each do |e| %>
             <tr id="enrollment-<%= e.id %>">
                     <td><%= e.cohort.name %></td>
+                    <td class="center-col"><%= e.cohort.enrollments.length %></td>
                     <td><%= link_to 'View', cohort_path(e.cohort.id) %></td>
                     <% if has_role?("Admin") %>
                         <td><%= link_to 'Edit', edit_cohort_enrollment_path(e.cohort.id, e.id) %></td>
