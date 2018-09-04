@@ -32,8 +32,8 @@ while i < 31 do
     j += 1
 end
 
-k = 1;
-i += 1;
+i += 1
+k = 1
 while k < 5 do
     rando = rand(50000..65000)
     randoco2 = rand(1..6)
