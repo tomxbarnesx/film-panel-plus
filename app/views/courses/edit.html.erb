@@ -1,38 +1,20 @@
 <h1>Edit Course</h1>
  
-<%= form_with(model: @course, local: true) do |form| %>
- 
-  <% if @course.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@course.errors.count, "error") %> prohibited
-        this Course from being saved:
-      </h2>
-      <ul>
-        <% @course.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
- 
-  <p>
+<%= form_with(model: @course, local: true) do |form| %> 
+  <div class="form-group">
     <%= form.label :name %><br>
-    <%= form.text_field :name %>
-  </p>
+    <%= form.text_field :name, class: "form-control" %>
+  </div>
  
-  <p>
+  <div class="form-group">
     <%= form.label :total_hours %><br>
-    <%= form.number_field :total_hours %>
-  </p>
+    <%= form.number_field :total_hours, class: "form-control" %>
+  </div>
 
-  <p>
+  <div class="form-group">
     <%= form.label :description %><br>
-    <%= form.text_area :description %>
-  </p>
-
-  <p>
-    <%= form.submit %>
-  </p>
+    <%= form.text_area :description, class: "form-control description-box" %>
+  </div>
+  <%= form.button :Submit, class: 'btn btn-primary submit-button' %>
  
 <% end %>

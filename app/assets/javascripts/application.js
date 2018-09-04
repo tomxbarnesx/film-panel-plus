@@ -16,3 +16,15 @@
 //= require_tree .
 //= require jquery
 //= require bootstrap-sprockets
+//= require jquery.turbolinks
+
+
+$(document).on('turbolinks:load', function () {
+    $('#datatable').DataTable( {
+        columnDefs: [
+            { orderable: false, targets: -1 },
+            { orderable: false, targets: -2 },
+            { orderable: false, targets: -3 },
+         ]
+    } );
+} );

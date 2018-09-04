@@ -7,7 +7,8 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+    </head>
 
   <body>
     <div id="wrapper">
@@ -27,7 +28,7 @@
                   <a href="/courses">- Full List</a>
                 </li>
                 <li>
-                  <a href="/courses/new">- Create New</a>
+                  <a href="/courses/new">- Add New</a>
                 </li>
               </ul>
             </li>
@@ -38,43 +39,32 @@
                   <a href="/cohorts">- Full List</a>
                 </li>
                 <li>
-                  <a href="/cohorts/new">- Create New</a>
+                  <a href="/cohorts/new">- Add New</a>
                 </li>
               </ul>
             </li>
-            <li>
-              <a href="#studentSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle big-list-item">Students</a>
-              <ul class="collapse list-unstyled" id="studentSubmenu">
+            <li class="big-list-item">
+              <a href="/students">Students</a>
+            </li>
+            <li class="big-list-item">
+                <a href="/instructors">Instructors</a>
+              </li>
+            <li class="big-list-item">
+              <a href="/admins">Admins</a>
+            </li>
+            <li class="sub-menu big-list-item">Add User</li>
+              <ul class="quick-add">
                 <li>
-                  <a href="/students">- Full List</a>
+                  <a href="/students/new">+ Student</a>
                 </li>
                 <li>
-                    <a href="/students/new">- Create New</a>
+                  <a href="/instructors/new">+ Instructor</a>
+                </li>
+                <li>
+                  <a href="/admins/new">+ Admin</a>
                 </li>
               </ul>
-            </li>
-            <li>
-              <a href="#instructorSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle big-list-item">Instructors</a>
-              <ul class="collapse list-unstyled" id="instructorSubmenu">
-                <li>
-                    <a href="/instructors">- Full List</a>
-                </li>
-                <li>
-                    <a href="/instructors/new">- Create New</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a href="#adminSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle big-list-item">Admins</a>
-              <ul class="collapse list-unstyled" id="adminSubmenu">
-                <li>
-                  <a href="/admins">- Full List</a>
-                </li>
-                <li>
-                  <a href="/admins/new">- Create New</a>
-                </li>
-              </ul>
-            </li>
+            </div>
         </ul>
       </nav>
       <div id="content">
@@ -84,5 +74,6 @@
         <%= yield %>
       </div>
     </div>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
   </body>
 </html>

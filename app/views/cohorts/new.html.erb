@@ -1,9 +1,21 @@
 <h1>Create New Cohort</h1>
 <br>
-<%= form_with scope: :cohort, url: cohorts_path, local: true do |form| %>
-    <%= form.text_field :name, placeholder: "Enter Name"%>
-    <%= date_field(:cohort, :start_date) %>
-    <%= date_field(:cohort, :end_date) %>
-    <%= collection_select(:cohort, :course_id, Course.all, :id, :name) %>
-    <%= form.submit %>
+<%= form_with scope: :cohort, url: cohorts_path, local: true do |f| %>
+    <div class="form-group">
+        <%= f.label :name %><br>
+        <%= f.text_field :name, placeholder: "Enter Name", class: "form-control"%>
+    </div>
+    <div class="form-group">
+        <label>Start Date</label>
+        <%= date_field(:cohort, :start_date, class: "form-control") %>
+    </div>
+    <div class="form-group">
+        <label>End Date</label>
+        <%= date_field(:cohort, :end_date, class: "form-control") %>
+    </div>
+    <div class="form-group">
+        <label>Course</label>
+        <%= collection_select(:cohort, :course_id, Course.all, :id, :name, {}, {:class=>'form-control'}) %>
+    </div>
+    <%= f.button :Submit, class: 'btn btn-primary submit-button' %>
 <% end %>

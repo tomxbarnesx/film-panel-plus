@@ -1,14 +1,19 @@
 <h1>Students List</h1>
 
-<table>
-    <tr class="table-header">
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Birthdate</th>
-        <th>Type</th>
-        <th class="center-col">Email</th>
-        <th>Background</th>
-        <th class='center-col' colspan='3'>Options</th>
-    </tr>
-    <%= render "student_list" %>
+<table id="datatable" class="display">
+    <thead>
+        <tr class="table-header">
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Birthdate</th>
+            <th class="center-col">Email</th>
+            <th>Background</th>
+            <th class='center-col'>Options</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <%= render "student_list" %>
+    </tbody>
 </table>

@@ -1,14 +1,20 @@
 <h1> Cohort List </h1>
-<table>
-    <tr>
-        <th>Name</th>
-        <th>Course</th>
-        <th>Start Date</th>
-        <th>End Date</th>
-        <th>Number of Students</th>
-        <th class='center-col' colspan='3'>Options</th>
-    </tr>
-    <%= render "cohort_list" %>
+<table id="datatable" class="display">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Course</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Number of Students</th>
+            <th class='center-col'>Options</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <%= render "cohort_list" %>
+    </tbody>
 </table>
 
 <div id="cohort-form" style="display:none;">

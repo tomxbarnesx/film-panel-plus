@@ -1,4 +1,4 @@
-<div class="course-card">
+<div class="cohort-info">
     <h1> <%= @course.name %> </h1>
     <p><strong>Total Hours:</strong> <%= @course.total_hours %></p>
     <% conn_arr = [] %>
@@ -8,3 +8,35 @@
     <p><strong>Number of Cohorts:</strong> <%= conn_arr.length %></p>
     <p><strong>Description:</strong> <%= @course.description %></p>
 </div>
+<br>
+<h1>Cohorts</h1>
+<table id="datatable" class="display">
+    <thead>
+        <tr class="table-header">
+            <th>Name</th>
+            <th>Headcount</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Options</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @course.cohorts.each do |co| %>
+            <tr>
+                <td><%= co.name %></td>
+                <td><%= co.enrollments.length %></td>
+                <td><%= co.start_date %></td>
+                <td><%= co.end_date %></td>
+                <td><%= link_to 'View', cohort_path(co.id) %></td>
+                <td><%= link_to 'Edit', edit_cohort_path(co.id) %></td>
+                <td><%= link_to 'Destroy', cohort_path(co.id),
+                method: :delete, remote:true,
+                data: { confirm: 'Are you sure?' } %></td> 
+            </tr>          
+        <% end %>
+    </tbody>
+</table>
+
+

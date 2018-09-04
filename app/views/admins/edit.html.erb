@@ -2,13 +2,36 @@
 
 <%= form_for @admin do |f|%>
     <%= fields_for :user, @admin.user do |p| %>
-        <%= p.text_field :first_name %>
-        <%= p.text_field :last_name %>
-        <%= p.text_field :email %>
-        <%= p.text_field :photo_url %>
-        <%= p.text_field :password %>
+        <div class="wrapper">
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <%= p.text_field :first_name, class: "form-control" %>
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <%= p.text_field :last_name, class: "form-control" %>
+            </div>
+        </div>
+        <div class="wrapper">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <%= p.text_field :email, class: "form-control" %>
+            </div>
+            <div class="form-group">
+                <label for="photo">Photo_URL</label>
+                <%= p.text_field :photo_url, class: "form-control" %>
+            </div>
+        </div>
     <% end %>
-    <%= f.text_field :salary %>
-    <%= f.text_field :edu %>
-    <%= f.button :submit %>
+    <div class="wrapper">
+        <div class="form-group">
+            <label for="salary">Salary</label>
+            <%= f.text_field :salary, class: "form-control" %>
+        </div>
+        <div class="form-group">
+            <label for="edu">Education</label>
+            <%= f.select(:edu, ['High School', 'Bachelors', 'Masters', 'PhD'], {}, { :class => 'form-control' }) %>
+        </div>
+    </div>
+    <%= f.button :Submit, class: 'btn btn-primary submit-button' %>
 <% end %>

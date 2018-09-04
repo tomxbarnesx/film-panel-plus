@@ -38,6 +38,12 @@ h1 {
     margin-top: 0em;
 }
 
+.purple-button {
+    background-color: rgb(143, 73, 150);
+    color: white;
+    margin-bottom: 1em;
+}
+
 .login-button {
     margin-top: 1em;
 }
@@ -74,7 +80,6 @@ h1 {
 
 .big-list-item {
     font-size: 125%;
-    color: #DCE0D9;
 }
 
 #logo-wrapper {
@@ -84,11 +89,28 @@ h1 {
     margin-bottom: -.7em;
 }
 
-//TABLE STYLING
-
-.table-header {
-    width: 100%;
+.sub-menu {
+    margin: 1em 0em.3em 0em;
 }
+
+.quick-add {
+    margin-left: -2.1em;
+    list-style: none;
+}
+
+//COHORT - COURSE SHOW STYLES
+
+.cohort-info {
+    width: 40em;
+    border: 1px solid rgb(231, 179, 236);
+    border-radius: .5em;
+    padding: 1em;
+    margin-right: 1em;
+    background-image: linear-gradient(rgb(251, 214, 253), white);
+}
+
+
+//TABLE STYLING
 
 td {
     padding: 0em .8em .4em .7em;
@@ -109,6 +131,7 @@ th {
 }
 
 table {
+    margin-right: 1em;
     border: 1px rgb(219, 171, 224) solid;
 
     tr {
@@ -121,6 +144,9 @@ tr:nth-child(odd){
     background-color: rgb(255, 235, 252);
 }
 
+.dataTables_wrapper{
+    margin-right: 2em;
+}
 
 //MEDIA QUERIES
 
@@ -133,5 +159,9 @@ tr:nth-child(odd){
     }
     #content {
         margin-left: 0;
+    }
+    .cohort-info {
+        margin: auto;
+        width: 98%;
     }
  }

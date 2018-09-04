@@ -1,6 +1,9 @@
 <h1>Create New Enrollment</h1>
 <br>
 <%= form_with scope: :enrollment, url: cohort_enrollments_path, local: true do |form| %>
-    <%= collection_select(:enrollment, :user_id, User.all, :id, :full_name) %>
-    <%= form.submit %>
+    <div class="form-group">
+        <label>Select Student / Instructor</label>
+        <%= collection_select(:enrollment, :user_id, User.all, :id, :full_name, {}, {:class=>'form-control'}) %>
+    </div>
+    <%= form.button :Submit, class: 'btn btn-primary submit-button' %>
 <% end %>

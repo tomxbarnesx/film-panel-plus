@@ -4,6 +4,7 @@
     flex-direction: column;
     align-items: center;
     padding-bottom: 1rem;
+    background-image: linear-gradient(rgb(251, 214, 253), white);
 
     .card-img-wrapper {
         display: flex;
@@ -11,7 +12,7 @@
         align-items: center;
         width: 100%;
         padding: 3rem 0rem 3rem 0rem;
-        background-color: rgb(255, 235, 252);
+        // background-color: rgb(255, 235, 252);
     }
 
     .card-body {
