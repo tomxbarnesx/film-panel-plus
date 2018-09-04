@@ -5,12 +5,16 @@
         <td><%= inst.user.birthdate %></td>
         <td><%= inst.user.userable_type %></td>
         <td><%= inst.user.email %></td>
+        <% if has_role?("Admin") %>
         <td><%= inst.salary %></td>
+        <% end %>
         <td><%= inst.edu %></td>
         <td><%= link_to 'Show', instructor_path(inst) %></td>
+        <% if has_role?("Admin") %>
         <td><%= link_to 'Edit', edit_instructor_path(inst) %></td>
         <td><%= link_to 'Destroy', instructor_path(inst),
               method: :delete, remote:true,
               data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
     </tr>
 <% end %>

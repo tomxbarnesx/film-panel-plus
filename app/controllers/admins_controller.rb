@@ -15,6 +15,7 @@ class AdminsController < ApplicationController
 
     def new
         @admin = Admin.new
+        @edus = ["GED", "Bachelors", "Masters", "PhD"]
     # method: get
     # action: index
     # template: admins/new.html.erb
@@ -51,8 +52,6 @@ class AdminsController < ApplicationController
     def destroy
         @admin = Admin.find(params[:id])
         @admin.destroy
-     
-        redirect_to admins_path
     end
 
     private

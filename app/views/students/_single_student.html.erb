@@ -1,7 +1,15 @@
 <div class="card-body">
+    <% if has_role?("Admin") || current_user.userable_id == @student.id %>
+    <a href="/students/<%= @student.id%>/edit">
+    <button class="btn btn-primary purple-button card-text">Edit Profile</button>
+    </a>
+    <% end %>
     <h1 class="card-title"><%= @student.user.first_name %> <%= @student.user.last_name %></h1>
     <p class="card-text"><strong>User Type:</strong> <%= @student.user.userable_type %></p>
     <p class="card-text"><strong>Birthdate:</strong> <%= @student.user.birthdate %></p>
     <p class="card-text"><strong>Background:</strong> <%= @student.background %></p>
     <p class="card-text"><strong>Email:</strong> <%= @student.user.email %></p>
+    <% if has_role?("Admin") || current_user.userable_id == @student.id %>
+    <p class="card-text"><strong>Payment:</strong> <%= @student.payment %></p>
+    <% end %>
 </div>

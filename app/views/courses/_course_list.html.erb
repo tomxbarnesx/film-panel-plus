@@ -7,8 +7,8 @@
             <% conn_arr.push(connect) %>
         <% end %>
         <td><%= conn_arr.length %></td>
+        <td><%= link_to 'View', course_path(cor) %></td>
         <% if has_role?("Admin") %>
-        <td><%= link_to 'Show', course_path(cor) %></td>
         <td><%= link_to 'Edit', edit_course_path(cor) %></td>
         <td><%= link_to 'Destroy', course_path(cor),
               method: :delete, remote:true,

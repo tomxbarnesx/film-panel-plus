@@ -1,8 +1,22 @@
+<% if has_role?("Student") || has_role?("Instructor") %>
+    <h1>You don't have the authorization to access this page...</h1>
+<% end %>
+<% if has_role?("Admin") %>
 <h1>Create New Course</h1>
 <br>
 <%= form_with scope: :course, url: courses_path, local: true do |form| %>
-    <%= form.text_field :name, placeholder: "Enter Name"%>
-    <%= number_field(:course, :total_hours, in: 0..300, step: 10) %>
-    <%= form.text_field :description, placeholder: "Enter a Description" %>
-    <%= form.submit %>
+    <div class="form-group">
+        <%= form.label :name%><br>
+        <%= form.text_field :name, placeholder: "Enter Name", class: "form-control"%>
+    </div>
+    <div class="form-group">
+        <label>Total Hours</label>
+        <%= number_field(:course, :total_hours, in: 0..300, step: 10, class: 'form-control') %>
+    </div>
+    <div class="form-group">
+        <label>Description</label>
+        <%= form.text_area :description, placeholder: "Enter a Description", class: "form-control" %>
+    </div>
+    <%= form.button :Submit, class: 'btn btn-primary submit-button' %>
+<% end %>
 <% end %>

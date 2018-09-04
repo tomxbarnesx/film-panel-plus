@@ -8,6 +8,7 @@ class StudentsController < ApplicationController
 
     def show
         @student = Student.find(params[:id])
+        @cohort = params[:cohort_id]
         # @enrollment = Enrollment.find(params[:id])
         # @enrollments = @student.user.enrollments
         # method: get
@@ -53,13 +54,11 @@ class StudentsController < ApplicationController
     def destroy
         @student = Student.find(params[:id])
         @student.destroy
-     
-        redirect_to students_path
     end
     
     private
         def student_params
-        params.require(:student).permit(:background)
+        params.require(:student).permit(:background, :payment)
         end
 
         def user_params

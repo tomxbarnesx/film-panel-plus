@@ -1,33 +1,52 @@
 <div class="cohort-card">
-    <h1> <%= @cohort.name %> </h1>
-    <p><strong>Course:</strong> <%= @cohort.course.name %></p>
-    <p><strong>Start Date:</strong> <%= @cohort.start_date %></p>
-    <p><strong>End Date:</strong> <%= @cohort.end_date %></p>
+    <div class="cohort-info">
+        <h1> <%= @cohort.name %> </h1>
+        <p><strong>Course:</strong> <%= @cohort.course.name %></p>
+        <p><strong>Start Date:</strong> <%= @cohort.start_date %></p>
+        <p><strong>End Date:</strong> <%= @cohort.end_date %></p>
+        <p><strong>Description:</strong> <%= @cohort.course.description %></p>
+    </div>
     <br>
-    <h2>Roster</h2>
-    <p><a href="/cohorts/<%= @cohort.id %>/enrollments/new">Add Members</a></p>
-    <table>
-        <tr>
-            <th>First Name</th> 
-            <th>Last Name</th>
-            <th>Type</h1>
-            <th>Birthdate</th>
-            <th>Email</th>
-            <th colspan="3">Options</th>
-        </tr>
-    <% @cohort.enrollments.each do |coho| %>
-        <tr>
-            <td><%= coho.user.first_name %></td>
-            <td><%= coho.user.last_name %></td>
-            <td><%= coho.user.userable_type %></td>
-            <td><%= coho.user.birthdate %></td>
-            <td><%= coho.user.email %></td>
-            <td><%= link_to 'Show', cohort_enrollment_path(@cohort.id, coho.id) %></td>
-            <td><%= link_to 'Edit', edit_cohort_enrollment_path(@cohort.id, coho.id) %></td>
-            <td><%= link_to 'Destroy', cohort_enrollment_path(@cohort.id, coho.id),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-    <% end %>
+    <h2>Cohort Roster</h2>
+        <% if has_role?("Admin") %>
+            <a href="/cohorts/<%= @cohort.id %>/enrollments/new"><button class="btn btn-primary purple-button">Add Member</div></a>
+        <% end %>
+            <table id="datatable" class="display" data-turbolinks="false">
+        <thead>
+            <tr class="table-header">
+                <th>First Name</th> 
+                <th>Last Name</th>
+                <th>Type</h1>
+                <th>Birthdate</th>
+                <th>Email</th>
+                <th>Options</th>
+                <% if has_role?("Admin") %>
+                <th></th>
+                <th></th>
+                <% end %>
+            </tr>
+        </thead>
+        <tbody>
+            <% @cohort.enrollments.each do |coho| %>
+                <tr>
+                    <td><%= coho.user.first_name %></td>
+                    <td><%= coho.user.last_name %></td>
+                    <td><%= coho.user.userable_type %></td>
+                    <td><%= coho.user.birthdate %></td>
+                    <td><%= coho.user.email %></td>
+                    <% if coho.user.userable_type == "Student" %>
+                    <td><%= link_to 'View', student_path(coho.user.userable_id) %></td>
+                    <% elsif coho.user.userable_type == "Instructor" %>
+                    <td><%= link_to 'View', instructor_path(coho.user.userable_id) %></td>
+                    <% end %>
+                    <% if has_role?("Admin") %>
+                    <td><%= link_to 'Edit', edit_cohort_enrollment_path(@cohort.id, coho.id) %></td>
+                    <td><%= link_to 'Destroy', cohort_enrollment_path(@cohort.id, coho.id),
+                    method: :delete, remote:true,
+                    data: { confirm: 'Are you sure?' } %></td>
+                    <% end %>
+                </tr>
+            <% end %>
+        </tbody>
     </table>
 </div>

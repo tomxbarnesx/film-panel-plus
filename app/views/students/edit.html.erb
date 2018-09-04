@@ -1,12 +1,44 @@
+<% if has_role?("Instructor") || current_user.userable_id != @student.id %>
+    <h1>You don't have the authorization to access this page...</h1>
+<% end %>
+<% if has_role?("Admin") || current_user.userable_id == @student.id %>
 <h1>Edit Student Profile</h1>
 
 <%= form_for @student do |f|%>
     <%= fields_for :user, @student.user do |p| %>
-        <%= p.text_field :first_name %>
-        <%= p.text_field :last_name %>
-        <%= p.text_field :email %>
-        <%= p.text_field :photo_url %>
+        <div class="wrapper">
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <%= p.text_field :first_name, class: "form-control" %>
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <%= p.text_field :last_name, class: "form-control" %>
+            </div>
+        </div>
+        <div class="wrapper">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <%= p.text_field :email, class: "form-control" %>
+            </div>
+            <div class="form-group">
+                <label for="photo">Photo_URL</label>
+                <%= p.text_field :photo_url, class: "form-control" %>
+            </div>
+        </div>
     <% end %>
-    <%= f.text_field :background %>
-    <%= f.button :submit %>
+    <div class="wrapper">
+        <div class="form-group">
+            <label for="background">Background</label>
+            <%= f.text_field :background, class: "form-control" %>
+        </div>
+        <% if has_role?("admin") %>
+        <div class="form-group">
+            <label for="payment">Payment</label>
+            <%= f.text_field :payment, class: "form-control" %>
+        </div>
+        <% end %>
+    </div>
+    <%= f.button :Submit, class: 'btn btn-primary submit-button' %>
+<% end %>
 <% end %>
