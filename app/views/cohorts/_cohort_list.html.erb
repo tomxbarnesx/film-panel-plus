@@ -6,9 +6,11 @@
         <td><%= coho.end_date %></td>
         <td><%= coho.enrollments.length %></td>
         <td><%= link_to 'Show', cohort_path(coho) %></td>
+        <% if has_role?("Admin") %>
         <td><%= link_to 'Edit', edit_cohort_path(coho) %></td>
         <td><%= link_to 'Destroy', cohort_path(coho),
               method: :delete, remote:true,
               data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
     </tr>
 <% end %>

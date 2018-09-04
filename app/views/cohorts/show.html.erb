@@ -9,7 +9,7 @@
     <br>
     <h2>Cohort Roster</h2>
         <a href="/cohorts/<%= @cohort.id %>/enrollments/new"><button class="btn btn-primary purple-button">Add Member</div></a>
-    <table id="datatable" class="display">
+    <table id="datatable" class="display" data-turbolinks="false">
         <thead>
             <tr class="table-header">
                 <th>First Name</th> 
@@ -35,10 +35,12 @@
                     <% elsif coho.user.userable_type == "Instructor" %>
                     <td><%= link_to 'View', instructor_path(coho.user.userable_id) %></td>
                     <% end %>
+                    <% if has_role?("Admin") %>
                     <td><%= link_to 'Edit', edit_cohort_enrollment_path(@cohort.id, coho.id) %></td>
                     <td><%= link_to 'Destroy', cohort_enrollment_path(@cohort.id, coho.id),
                     method: :delete, remote:true,
                     data: { confirm: 'Are you sure?' } %></td>
+                    <% end %>
                 </tr>
             <% end %>
         </tbody>

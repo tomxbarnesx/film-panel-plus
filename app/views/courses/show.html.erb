@@ -10,7 +10,7 @@
 </div>
 <br>
 <h1>Cohorts</h1>
-<table id="datatable" class="display">
+<table id="datatable" class="display" data-turbolinks="false">
     <thead>
         <tr class="table-header">
             <th>Name</th>
@@ -30,10 +30,12 @@
                 <td><%= co.start_date %></td>
                 <td><%= co.end_date %></td>
                 <td><%= link_to 'View', cohort_path(co.id) %></td>
+                <% if has_role?("Admin") %>
                 <td><%= link_to 'Edit', edit_cohort_path(co.id) %></td>
                 <td><%= link_to 'Destroy', cohort_path(co.id),
                 method: :delete, remote:true,
                 data: { confirm: 'Are you sure?' } %></td> 
+                <% end %>
             </tr>          
         <% end %>
     </tbody>

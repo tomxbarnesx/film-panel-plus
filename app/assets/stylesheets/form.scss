@@ -3,6 +3,10 @@
     width: 15em;
 }
 
-.submit-button {
-    margin-top: 1em;
+.adder-group {
+    width: 25em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 1em;
 }

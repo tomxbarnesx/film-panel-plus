@@ -7,9 +7,11 @@
         <td><%= ad.salary %></td>
         <td><%= ad.edu %></td>
         <td><%= link_to 'Show', admin_path(ad) %></td>
+        <% if has_role?("Admin") %>
         <td><%= link_to 'Edit', edit_admin_path(ad) %></td>
         <td><%= link_to 'Destroy', admin_path(ad),
               method: :delete, remote:true,
               data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
     </tr>
 <% end %>

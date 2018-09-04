@@ -5,19 +5,33 @@
     <%= render "single_student" %>
 </div>
 <br>
-<table style="min-width: 35.2rem;">
-    <tr>
-        <th>Cohorts</th>
-        <th colspan="3" class="center-col">Options</th>
-    </tr>
-    <% @student.user.enrollments.each do |e| %>
-    <tr id="enrollment-<%= e.id %>">
-            <td><%= e.cohort.name %></td>
-            <td><%= link_to 'View', cohort_path(e.cohort.id) %></td>
-            <td><%= link_to 'Edit', edit_cohort_enrollment_path(e.cohort.id, e.id) %></td>
-            <td><%= link_to 'Destroy', cohort_enrollment_path(e.cohort.id, e.id),
-            method: :delete, remote:true,
-            data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-    <% end %>
+<h2><%= @student.user.first_name %>'s Enrollments</h2>
+<div class="wrapper" id="add-wrapper">
+    <button class="btn btn-primary purple-button" id="adder">Add New</button>
+        <div id="hidden-adder" style="display:none;">
+        </div>
+</div>
+<table id="datatable" data-turbolinks="false" class="display mini-table">
+    <thead>
+        <tr>
+            <th>Cohorts</th>
+            <th class="center-col">Options</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @student.user.enrollments.each do |e| %>
+            <tr id="enrollment-<%= e.id %>">
+                    <td><%= e.cohort.name %></td>
+                    <td><%= link_to 'View', cohort_path(e.cohort.id) %></td>
+                    <% if has_role?("Admin") %>
+                        <td><%= link_to 'Edit', edit_cohort_enrollment_path(e.cohort.id, e.id) %></td>
+                        <td><%= link_to 'Destroy', cohort_enrollment_path(e.cohort.id, e.id),
+                        method: :delete, remote:true,
+                        data: { confirm: 'Are you sure?' } %></td>
+                    <% end %>
+            </tr>
+        <% end %>
+    </tbody>
 </table>

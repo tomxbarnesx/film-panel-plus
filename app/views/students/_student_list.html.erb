@@ -6,9 +6,11 @@
         <td><%= stu.user.email %></td>
         <td><%= stu.background %></td>
         <td><%= link_to 'Show', student_path(stu) %></td>
+        <% if has_role?("Admin") %>
         <td><%= link_to 'Edit', edit_student_path(stu) %></td>
         <td><%= link_to 'Destroy', student_path(stu),
               method: :delete, remote:true,
               data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
     </tr>
 <% end %>

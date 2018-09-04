@@ -1,7 +1,11 @@
 <div class="card-body">
+    <a href="/students/<%= @student.id%>/edit">
+    <button class="btn btn-primary purple-button card-text">Edit Profile</button>
+    </a>
     <h1 class="card-title"><%= @student.user.first_name %> <%= @student.user.last_name %></h1>
     <p class="card-text"><strong>User Type:</strong> <%= @student.user.userable_type %></p>
     <p class="card-text"><strong>Birthdate:</strong> <%= @student.user.birthdate %></p>
     <p class="card-text"><strong>Background:</strong> <%= @student.background %></p>
     <p class="card-text"><strong>Email:</strong> <%= @student.user.email %></p>
+    <p class="card-text"><strong>Payment:</strong> <%= @student.payment %></p>
 </div>

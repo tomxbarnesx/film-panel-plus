@@ -8,6 +8,8 @@ class StudentsController < ApplicationController
 
     def show
         @student = Student.find(params[:id])
+        @enrollment = Enrollment.new
+        @cohort = params[:cohort_id]
         # @enrollment = Enrollment.find(params[:id])
         # @enrollments = @student.user.enrollments
         # method: get
@@ -57,7 +59,7 @@ class StudentsController < ApplicationController
     
     private
         def student_params
-        params.require(:student).permit(:background)
+        params.require(:student).permit(:background, :payment)
         end
 
         def user_params

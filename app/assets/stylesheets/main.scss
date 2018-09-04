@@ -109,7 +109,6 @@ h1 {
     background-image: linear-gradient(rgb(251, 214, 253), white);
 }
 
-
 //TABLE STYLING
 
 td {
@@ -146,6 +145,10 @@ tr:nth-child(odd){
 
 .dataTables_wrapper{
     margin-right: 2em;
+}
+
+.mini-table {
+    width: 10em;
 }
 
 //MEDIA QUERIES

@@ -18,7 +18,6 @@
 //= require bootstrap-sprockets
 //= require jquery.turbolinks
 
-
 $(document).on('turbolinks:load', function () {
     $('#datatable').DataTable( {
         columnDefs: [
@@ -28,3 +27,14 @@ $(document).on('turbolinks:load', function () {
          ]
     } );
 } );
+
+$(document).ready(function() {
+    let adder = document.getElementById('adder');
+    let hiddenAdder = document.getElementById('hidden-adder');
+
+    adder.addEventListener('click', () => {
+        adder.style.display="none";
+        hiddenAdder.style.display="flex";
+    });
+    
+});

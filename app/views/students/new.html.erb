@@ -1,6 +1,17 @@
 <h1>Create New Student</h1>
 
 <%= form_for @student do |f|%>
+    <% if @student.errors.any? %>
+        <div id="error_explanation">
+            <h3><%= pluralize(@student.errors.count, "error") %> prohibited this post from being saved:</h3>
+
+            <ul>
+            <% @student.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+            </ul>
+        </div>
+    <% end %>
     <%= fields_for :user, @student.user do |p| %>
         <div class="wrapper">
             <div class="form-group">
@@ -25,7 +36,7 @@
         <div class="wrapper">
             <div class="form-group">
                 <label for="Photo">Photo URL</label>
-                <%= p.text_field :photo_url, placeholder: "Enter Photo URL", class: "form-control" %>
+                <%= p.select(:photo_url, [['Student', 'https://www.shareicon.net/data/256x256/2016/09/01/822751_user_512x512.png'], ['Admin', 'https://www.shareicon.net/data/256x256/2016/09/01/822747_user_512x512.png'], ['Instructor', 'https://www.shareicon.net/data/256x256/2016/09/01/822761_user_512x512.png']], {}, { :class => 'form-control' }) %>
             </div>
             <div class="form-group">
                 <label for="Password">Temp Password</label>
