@@ -37,7 +37,7 @@
         <% end %>
     </div>
     <%= f.button :Submit, class: 'btn btn-primary submit-button' %>
-    <% if current_user.id == @student.id %>
+    <% if current_user.id == @student.user.id %>
     <%= link_to "Change password", edit_user_registration_path, class: 'btn btn-primary' %>
     <% end %>
 <% end %>
