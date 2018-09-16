@@ -26,6 +26,7 @@ class InstructorsController < ApplicationController
     end
 
     def create
+        
         @instructor = Instructor.new(instructor_params)
         @instructor.build_user(user_params)
 

@@ -19,7 +19,7 @@ Cohort.create(name: "DIYE - Winter 2018", start_date: "20181101", end_date: "201
 
 
 Admin.create(salary: 100000, edu: "PhD")
-User.create(first_name: "Tom", last_name: "Barnes", email: "hotchiligumption@gmail.com", birthdate: "19900313", photo_url: "https://www.shareicon.net/data/256x256/2016/09/01/822747_user_512x512.png", userable_id: 1, userable_type: "Admin", password: "password");
+User.create(first_name: "Tom", last_name: "Barnes", email: "admin@test.com", birthdate: "19900313", photo_url: "https://www.shareicon.net/data/256x256/2016/09/01/822747_user_512x512.png", userable_id: 1, userable_type: "Admin", password: "password");
 
 i = 1
 j = 2

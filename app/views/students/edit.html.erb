@@ -1,6 +1,3 @@
-<% if has_role?("Instructor") || current_user.userable_id != @student.id %>
-    <h1>You don't have the authorization to access this page...</h1>
-<% end %>
 <% if has_role?("Admin") || current_user.userable_id == @student.id %>
 <h1>Edit Student Profile</h1>
 
@@ -29,8 +26,8 @@
     <% end %>
     <div class="wrapper">
         <div class="form-group">
-            <label for="background">Background</label>
-            <%= f.text_field :background, class: "form-control" %>
+            <label for="background" style="display:none">Background</label>
+            <%= f.text_field :background, class: "form-control", style: "display:none" %>
         </div>
         <% if has_role?("admin") %>
         <div class="form-group">
@@ -40,5 +37,10 @@
         <% end %>
     </div>
     <%= f.button :Submit, class: 'btn btn-primary submit-button' %>
+    <% if current_user.id == @student.id %>
+    <%= link_to "Change password", edit_user_registration_path, class: 'btn btn-primary' %>
+    <% end %>
 <% end %>
+<% else %>
+    <h1>You don't have the authorization to access this page...</h1>
 <% end %>
